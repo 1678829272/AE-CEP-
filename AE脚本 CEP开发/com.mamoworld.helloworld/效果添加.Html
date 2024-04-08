@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>文件浏览系统</title>
+  <!-- <link rel="stylesheet" type="text/css" href="main.css"> -->
+  <style>
+     #image-container {
+      position: relative;
+      display: inline-block;
+    }
+      .folder:hover {
+    display:flex;
+    position: absolute;
+    /* top: 100%;
+    left: 0;  */
+    float: right;
+    width: 450px; /* 预览图片的宽度
+    height: auto; /* 预览图片的高度，根据比例自动调整 */
+    padding: 380px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+  }
+
+  .image-container:hover .image-preview {
+    display: block;
+  }
+    
+    #context-menu {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 5px;
+    }
+    .folder {
+        width: 192px;
+        height: 108px;
+        /* background-image: url("icons/000.gif"); */
+        background-size: cover;
+        background-repeat: no-repeat;
+        cursor: pointer;
+    }
+    .folder:hover {
+        animation: playGif 1s steps(20) infinite;
+    }
+    /* @keyframes playGif {
+        from { background-position: 0 0; }
+        to { background-position: -2000px 0; }
+    } */
+    .folder-list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .folder-item {
+        margin: 10px;
+        text-align: center;
+    }
+    .folder-name {
+        margin-top: 5px;
+    }
+</style>
+</head>
+<body>
+    <!-- --------------------------------------------导航栏 -->
+    <div style="margin-top: 20px;">
+        <nav style="display: block;">
+        <ul style="  display: flex;">
+          <li style="display: block;margin-left: 30px;"><a href="index.html">工具箱</a></li>
+          <li style="display: block;margin-left: 30px;"><a href="效果添加.Html">效果添加</a></li>
+          <li style="display: block;margin-left: 30px;"><a href="services.html">服务</a></li>
+          <li style="display: block;margin-left: 30px;"><a href="contact.html">联系我们</a></li>
+        </ul>
+      </nav>
+      </div>
+<!-- --------------------------------------------鼠标右键跳出菜单 -->
+
+      <div id="context-menu" style="display:flex;left: 5000px;z-index: 99999;">
+        <ul>
+          <li id="add-to-project">添加到项目</li>
+        </ul>
+      </div>
+
+
+<!-- --------------------------------------------文件浏览 -->
+
+    <div class="folder-list">
+        <div id="image-container" class="folder-item" name="image-container">
+            <div class="folder" style="background-image: url(GIF文件和AE文件/螺旋线条动画.gif);" onclick="openFolder(event)" oncontextmenu="enterFolder(event)"></div>
+            <div class="folder-name">螺旋线条动画</div>
+        </div>
+        <div  class="folder-item" id="image-container" name="image-container">
+            <div  class="folder" onclick="openFolder()" oncontextmenu="enterFolder(event)" style="background-image: url(GIF文件和AE文件/波纹变形.gif);"></div>
+            <div  class="folder-name">波纹变形</div>
+        </div>
+        <div id="image-container" class="folder-item" name="image-container">
+            <div class="folder" onclick="openFolder()" oncontextmenu="enterFolder(event)" style="background-image: url(GIF文件和AE文件/液体涟漪动画.gif);"></div>
+            <div class="folder-name">液体涟漪动画</div>
+        </div>
+
+        <div id="image-container" class="folder-item" name="image-container">
+          <div class="folder" onclick="openFolder()" oncontextmenu="enterFolder(event)" style="background-image: url(GIF文件和AE文件/故障风文字特效.gif);"></div>
+          <div class="folder-name">故障风文字特效</div>
+      </div>
+
+      <div id="image-container" class="folder-item" name="image-container">
+        <div class="folder" onclick="openFolder()" oncontextmenu="enterFolder(event)" style="background-image: url(GIF文件和AE文件/文字遮罩效果.gif);"></div>
+        <div class="folder-name">文字遮罩效果</div>
+    </div>
+
+    <div id="image-container" class="folder-item" name="image-container">
+      <div class="folder" onclick="openFolder()" oncontextmenu="enterFolder(event)" style="background-image: url(GIF文件和AE文件/文本描边显示动画.gif);"></div>
+      <div class="folder-name">文本描边显示动画</div>
+  </div>
+
+  <div id="image-container" class="folder-item" name="image-container">
+    <div class="folder" onclick="openFolder()" oncontextmenu="enterFolder(event)" style="background-image: url(GIF文件和AE文件/故障风文字特效.gif);"></div>
+    <div class="folder-name">故障风文字特效</div>
+</div>
+        <!-- Add more folder items as needed -->
+    </div>
+
+    <script>
+
+        var contextMenu = document.getElementById("context-menu");
+        var addToProject = document.getElementById("add-to-project");
+        function openFolder(div) {
+            // Code to open the folde
+        }
+        
+        function enterFolder(event) {
+
+            event.preventDefault();
+            //获取鼠标右键点击的位置
+            var x = event.clientX;
+            var y = event.clientY;
+            //获取调用事件的父对象
+            var diav = event.target
+            var computedStyle = window.getComputedStyle(diav);
+            //获取对象的背景图片
+            var backgroundImage = computedStyle.getPropertyValue('background-image');
+            //var encodedPath = '/%E4%B8%AD%E6%96%87/%E6%96%87%E4%BB%B6.txt';
+
+            var decodedPath = decodeURIComponent(backgroundImage);  //路径转为中文格式
+            // console.log('解码后的路径：', decodedPath);
+              // 提取相对路径部分  获取文件名
+            var relativePath = decodedPath.replace('url("', '').replace('")', '');
+            var fileName = relativePath.split('/').pop();
+
+            contextMenu.style.display = "block";
+            contextMenu.style.left = x + "px";
+            contextMenu.style.top = y + "px";
+            contextMenu.style.display = "block";
+            contextMenu.style.left = x + "px";
+            contextMenu.style.top = y + "px";
+            contextMenu.className=fileName
+            // var addToProjectClickHandler = function(){
+            //     addToProject.removeEventListener("click", addToProjectClickHandler);//取消监听
+                
+            // };
+            
+            // addToProject.addEventListener("click", addToProjectClickHandler);
+
+            // document.addEventListener("click", function() {
+            // contextMenu.style.display = "none";
+            //  addToProject.removeEventListener("click", addToProjectClickHandler);///取消监听
+            // });
+
+           
+            
+            }
+            
+
+            
+    
+    </script>
+
+    <script src="js/libs/CSInterface.js"></script>
+    <script src="js/libs/jquery-2.0.2.min.js"></script>
+
+    <script src="js/themeManager.js"></script>
+    <script src="js/main.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

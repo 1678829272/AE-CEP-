@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+        <!-- These are debugging shortcuts.  Class debuglink items only appear in debug mode 
+<link rel="stylesheet" href="css/topcoat-desktop-dark.min.css"/>
+ -->
+<!--<link  id="hostStyle" rel="stylesheet" href="css/styles.css"/>-->
+
+<title></title>
+</head>
+
+<body class="hostElt" style="background-color: #77c1f3;">
+  <div style="margin-top: 20px;">
+  <nav style="display: block;">
+  <ul style="  display: flex;">
+    <li style="display: block;margin-left: 30px;"><a href="index.html">工具箱</a></li>
+    <li style="display: block;margin-left: 30px;"><a href="效果添加.Html">效果添加</a></li>
+    <li style="display: block;margin-left: 30px;"><a href="services.html">服务</a></li>
+    <li style="display: block;margin-left: 30px;"><a href="contact.html">联系我们</a></li>
+  </ul>
+</nav>
+</div>
+    <div class="panel" style="height: auto;width: auto; margin-top:20px;margin: left 10px;border: 3px solid #000000;;">
+        <div style="margin: 10px;  height: auto; border: 3px solid #000000;">
+        <div style="margin: 20px;"><h2 class="panel-title">字符拆分</h2></div>
+        <div class="panel-content" style="margin-left: 20px;margin-bottom: 20px;">
+          <button id="btn_tests" style="margin: 5px;"  >点击拆分</button>
+          <input  type="checkbox" id="kaiqi1" name="option1" value="option1">
+            <label for="option1" >开启单帧</label>
+        </div>
+    </div>
+        
+      </div>
+
+      <!--  -------------------------------------------------------------------------------------->
+      <div class="panel" style="height: auto;width: auto; margin-top:20px;margin: left 10px;border: 3px solid #000000;;">
+        <div style="margin: 10px;  height: auto; border: 3px solid #000000;">
+        <div style="margin: 20px;"><h2 class="panel-title">随机生成字符串</h2></div>
+        <div class="panel-content" style="margin-left: 20px;">
+          <button id="suiji" style="margin: 5px;"  >点击生成</button>
+          <input type="checkbox" id="option1" name="option" value="option1" onclick="handleCheckbox(this)">
+            <label for="option1">随机数字</label>
+
+            <input type="checkbox" id="option2" name="option" value="option2" onclick="handleCheckbox(this)">
+            <label for="option2">随机字母</label>
+
+            <input type="checkbox" id="option3" name="option" value="option3" onclick="handleCheckbox(this)">
+            <label for="option3">随机数字和字母</label>
+        </div>
+        <div class="panel-content" style="margin-top: 20px;margin-bottom: 20px;margin-left: 20px;">
+            <label>新建合成大小</label>
+            <input type="text" id="width_input" name="name" placeholder="输入合成大小">
+            <input type="checkbox" id="kaiqi2" name="option" value="option1">
+            <label for="option1">开启单帧</label>
+          </div>
+        </div>
+      </div>
+
+
+      <!--  -------------------------------------------------------------------------------------->
+
+
+    
+    <!-- These are debugging shortcuts.  Class debuglink items only appear in debug mode  -->
+    <script>
+        function handleCheckbox(checkbox) {
+          var checkboxes = document.getElementsByName("option");
+          
+          // 遍历所有复选框，除了当前点击的复选框
+          for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i] !== checkbox) {
+              checkboxes[i].checked = false;
+            }
+          }
+        }
+        </script>
+    <span class="debuglink" id="reload">Reload</span>
+    <span class="debuglink" id="debug">Debug</span>
+    <span class="debuglink" id="sources">Sources</span>
+    
+    <script src="js/libs/CSInterface.js"></script>
+    <script src="js/libs/jquery-2.0.2.min.js"></script>
+
+    <script src="js/themeManager.js"></script>
+    <script src="js/main.js"></script>
+
+        
+</body>
+
+</html>

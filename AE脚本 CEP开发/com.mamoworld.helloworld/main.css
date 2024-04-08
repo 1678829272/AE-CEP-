@@ -1,0 +1,34 @@
+h1 {
+    text-align: center;
+  }
+  
+  #file-tree {
+    margin: 20px;
+  }
+  
+  .folder {
+    list-style-type: none;
+    margin-bottom: 10px;
+  }
+  
+  .folder:before {
+    content: "+";
+    margin-right: 5px;
+    cursor: pointer;
+  }
+  
+  .folder.open:before {
+    content: "-";
+  }
+  
+  .file {
+    list-style-type: none;
+    margin-left: 20px;
+    cursor: pointer;
+  }
+  
+  .file:before {
+    content: "📄";
+    margin-right: 5px;
+  }
+  
